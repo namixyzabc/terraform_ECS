@@ -1,0 +1,5 @@
+env                     = "prod"
+domain_name             = "example.com"
+private_zone_name       = "example.local"
+db_username             = "admin"
+db_password             = "your-secure-password"
