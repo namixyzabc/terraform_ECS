@@ -1,34 +1,34 @@
-# Terraform AWS ECS Environment
+# Terraform AWS ECS 環境
 
-This Terraform project sets up a complete, cost-optimized, and scalable web application environment on AWS using ECS Fargate.
+このTerraformプロジェクトは、ECS Fargateを使用してAWS上に完全で、コスト最適化された、スケーラブルなWebアプリケーション環境を構築します。
 
-## Features
+## 機能
 
-- **VPC**: Public/private subnet architecture with AZ redundancy.
-- **NAT**: Cost-effective NAT Instance for private subnet outbound traffic.
-- **Route53**: Public and private hosted zones for DNS management.
-- **Security**: WAF, ACM for SSL, and fine-grained Security Groups.
-- **Application**: ECS Fargate with ALB, CloudFront for static content.
-- **Database**: RDS MySQL (cost-optimized) with RDS Proxy.
-- **Operations**: CloudWatch Logs, EventBridge, and Systems Manager Parameter Store.
-- **Development**: Bastion host for secure access and S3 for assets.
+- **VPC**: AZ冗長化を備えたパブリック/プライベートサブネット構成
+- **NAT**: プライベートサブネットのアウトバウンドトラフィック用のコスト効率的なNATインスタンス
+- **Route53**: DNS管理のためのパブリックおよびプライベートホストゾーン
+- **セキュリティ**: WAF、SSL用ACM、および細分化されたセキュリティグループ
+- **アプリケーション**: ALBを備えたECS Fargate、静的コンテンツ用CloudFront
+- **データベース**: RDS MySQL（コスト最適化）とRDS Proxy
+- **運用**: CloudWatch Logs、EventBridge、Systems Manager Parameter Store
+- **開発**: セキュアアクセス用Bastionホストとアセット用S3
 
-## Prerequisites
+## 前提条件
 
-- [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) installed.
-- AWS account and configured credentials.
-- A registered domain name.
+- [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) がインストールされていること
+- AWSアカウントと設定済みの認証情報
+- 登録済みのドメイン名
 
-## Setup
+## セットアップ
 
-1. **Clone the repository:**
+1. **リポジトリをクローン:**
    ```sh
    git clone <repository-url>
    cd terraform-aws-ecs
    ```
 
-2. **Create a `terraform.tfvars` file:**
-   Copy the example file and update the values for your environment.
+2. **`terraform.tfvars` ファイルを作成:**
+   サンプルファイルをコピーして、環境に合わせて値を更新してください。
    ```sh
    cp terraform.tfvars.example terraform.tfvars
    ```
@@ -41,34 +41,34 @@ This Terraform project sets up a complete, cost-optimized, and scalable web appl
    db_password             = "your-secure-db-password"
    ```
 
-## Deployment
+## デプロイ
 
-1. **Initialize Terraform:**
+1. **Terraformを初期化:**
    ```sh
    terraform init
    ```
 
-2. **Plan the deployment:**
+2. **デプロイ計画を確認:**
    ```sh
    terraform plan
    ```
 
-3. **Apply the changes:**
+3. **変更を適用:**
    ```sh
    terraform apply
    ```
 
-## Cleanup
+## クリーンアップ
 
-To destroy all resources created by this project:
+このプロジェクトで作成されたすべてのリソースを削除するには:
 ```sh
 terraform destroy
 ```
 
-## File Structure
+## ファイル構成
 
-- **`main.tf`**: Contains the main resource definitions for the infrastructure.
-- **`variables.tf`**: Defines all the input variables.
-- **`outputs.tf`**: Specifies the output values after deployment.
-- **`terraform.tfvars.example`**: Example variable values.
-- **`README.md`**: This file.
+- **`main.tf`**: インフラストラクチャのメインリソース定義を含む
+- **`variables.tf`**: すべての入力変数を定義
+- **`outputs.tf`**: デプロイ後の出力値を指定
+- **`terraform.tfvars.example`**: 変数値のサンプル
+- **`README.md`**: このファイル
